@@ -4,5 +4,5 @@ set version=%2
 git add --all
 git commit -m %commit%
 git tag %version%
-git push -f -u origin HEAD:%version%
+git push -f -u origin %version%
 @echo on
