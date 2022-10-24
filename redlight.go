@@ -18,7 +18,7 @@ var rawRedstoneLightOn []byte
 //go:embed DefaultOff.png
 var rawRedstoneLightOff []byte
 
-var RedstoneLights []*ebiten.Image // 0 is off, 1 is on
+var RedstoneLights [2]*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
