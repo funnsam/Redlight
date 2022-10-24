@@ -21,17 +21,17 @@ var RedstoneLights [2]*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
-	fmt.Println(rawRedstoneLightOff)
-	fmt.Println(rawRedstoneLightOn)
-	ti, err := png.Decode(bytes.NewBuffer(rawRedstoneLightOff))
+	tm1 := bytes.NewReader(rawRedstoneLightOff)
+	tm2 := bytes.NewReader(rawRedstoneLightOn)
+
+	ti1, err := png.Decode(tm1)
 	fmt.Println(err.Error())
 
-	RedstoneLights[0] = ebiten.NewImageFromImage(ti)
-
-	ti, err = png.Decode(bytes.NewBuffer(rawRedstoneLightOn))
+	ti2, err := png.Decode(tm2)
 	fmt.Println(err.Error())
 
-	RedstoneLights[1] = ebiten.NewImageFromImage(ti)
+	RedstoneLights[0] = ebiten.NewImageFromImage(ti1)
+	RedstoneLights[1] = ebiten.NewImageFromImage(ti2)
 }
 
 func Render(img [][]bool) *ebiten.Image {
