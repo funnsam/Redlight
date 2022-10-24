@@ -18,15 +18,15 @@ var rawRedstoneLightOn []byte
 //go:embed DefaultOff.png
 var rawRedstoneLightOff []byte
 
-var RedstoneLights [2]*ebiten.Image // 0 is off, 1 is on
+var RedstoneLights = [2]*ebiten.Image{nil, nil} // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
-	fmt.Println(rawRedstoneLightOff)
-	fmt.Println(rawRedstoneLightOn)
-	ti, _, _ := image.Decode(bytes.NewBuffer(rawRedstoneLightOff))
+	ti, _, err := image.Decode(bytes.NewBuffer(rawRedstoneLightOff))
+	fmt.Println(err.Error())
 	RedstoneLights[0] = ebiten.NewImageFromImage(ti)
-	ti, _, _ = image.Decode(bytes.NewBuffer(rawRedstoneLightOn))
+	ti, _, err = image.Decode(bytes.NewBuffer(rawRedstoneLightOn))
+	fmt.Println(err.Error())
 	RedstoneLights[1] = ebiten.NewImageFromImage(ti)
 }
 
