@@ -11,21 +11,22 @@ import (
 
 var boolToIntLookup = map[bool]int8{false: 0, true: 1}
 
-//go:embed DefaultOn.png
-var rawRedstoneLightOn []byte
-
-//go:embed DefaultOff.png
-var rawRedstoneLightOff []byte
-
 var RedstoneLights [2]*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
+	//go:embed DefaultOff.png
+	var rawRedstoneLightOff []byte
 	ti, err := png.Decode(bytes.NewBuffer(rawRedstoneLightOff))
 	fmt.Println(err.Error())
+
 	RedstoneLights[0] = ebiten.NewImageFromImage(ti)
+
+	//go:embed DefaultOn.png
+	var rawRedstoneLightOn []byte
 	ti, err = png.Decode(bytes.NewBuffer(rawRedstoneLightOn))
 	fmt.Println(err.Error())
+
 	RedstoneLights[1] = ebiten.NewImageFromImage(ti)
 }
 
