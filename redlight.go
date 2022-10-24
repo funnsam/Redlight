@@ -3,6 +3,7 @@ package redlight
 import (
 	"bytes"
 	_ "embed"
+	"fmt"
 	"image"
 	_ "image/png"
 
@@ -21,6 +22,8 @@ var RedstoneLights []*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
+	fmt.Println(rawRedstoneLightOff)
+	fmt.Println(rawRedstoneLightOn)
 	ti, _, _ := image.Decode(bytes.NewBuffer(rawRedstoneLightOff))
 	RedstoneLights[0] = ebiten.NewImageFromImage(ti)
 	ti, _, _ = image.Decode(bytes.NewBuffer(rawRedstoneLightOn))
