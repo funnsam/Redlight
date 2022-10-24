@@ -12,10 +12,10 @@ import (
 
 var boolToIntLookup = map[bool]int8{false: 0, true: 1}
 
-// go:embed DefaultOn.png
+//go:embed DefaultOn.png
 var rawRedstoneLightOn []byte
 
-// go:embed DefaultOff.png
+//go:embed DefaultOff.png
 var rawRedstoneLightOff []byte
 
 var RedstoneLights []*ebiten.Image // 0 is off, 1 is on
