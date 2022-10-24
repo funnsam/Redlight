@@ -20,7 +20,7 @@ var rawRedstoneLightOff []byte
 var RedstoneLights []*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
-func Initalize() {
+func init() {
 	ti, _, _ := image.Decode(bytes.NewBuffer(rawRedstoneLightOff))
 	RedstoneLights[0] = ebiten.NewImageFromImage(ti)
 	ti, _, _ = image.Decode(bytes.NewBuffer(rawRedstoneLightOn))
