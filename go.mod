@@ -1,4 +1,4 @@
-module github.com/funnsam/Redlight v0.1.0
+module github.com/funnsam/Redlight
 
 go 1.19
 
