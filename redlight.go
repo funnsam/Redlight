@@ -21,6 +21,8 @@ var RedstoneLights [2]*ebiten.Image // 0 is off, 1 is on
 var RedstoneLightSize int = 4
 
 func init() {
+	fmt.Println(rawRedstoneLightOff)
+	fmt.Println(rawRedstoneLightOn)
 	ti, err := png.Decode(bytes.NewBuffer(rawRedstoneLightOff))
 	fmt.Println(err.Error())
 
